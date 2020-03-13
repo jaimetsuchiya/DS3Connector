@@ -1,0 +1,434 @@
+http://app.digitalshare.com.br/admin
+user: dshareadm@gmail.com
+pwd: ds3doc19
+
+http://devel.digitalshare.com.br/admin
+
+
+Current Token: ADLPJWsdCtbBKttQGrfOZcznshWqozhI1ENfHGDH4DXGeX7lpuGYlSWT7d8nh-91c_D00RJO3Qo_EhVYwXWTYfhHyoNNyC3p30Z-QyoRHV9y6j7hht2Dusw-Gxocfhkusq-yeNLFj93lcGYaY4HWrngtKQBgsCIbodGYKxvZU_Nwlmllo_2R9AU9m3hNl8mfMTa_Vc45HaYGegllxIo4wJICSSQVIRMelg
+
+Lista dos métodos, todos acionados por POST:
+
+Document:
+- create: https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/create
+- update: https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/update
+- delete: https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/delete
+- search: https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/search
+
+DocType:
+- search: https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/search
+
+AttachedDoc:
+- search: https://devel.digitalshare.com.br/pt-BR/api/v1/attached_docs/search
+- delete: https://devel.digitalshare.com.br/pt-BR/api/v1/attached_docs/delete
+
+User:
+- search: https://devel.digitalshare.com.br/pt-BR/api/v1/users/search
+
+
+Tipos de Documento 
+		65 -> Espelho de Caixa
+		67 -> Folha de processo retido em cartorio
+		
+
+Teste
+Comarca 64142
+Vara 10000760
+Nro Pacote 1524
+Ano pacote 2004
+Nro Caixa 9009637942
+Nro Item 3
+Nro Processo 123456
+Ano Processo 2004
+
+Document ID 394310
+Document Type ID 67
+
+{
+	"status": "SUCCESS",
+	"message": "Doctype was successfully found.",
+	"total_found": 2,
+	"total_per_page": 50,
+	"page": 1,
+	"data": [
+		{
+			"id": 65,
+			"name": "Espelho de Caixa",
+			"show_user": false,
+			"show_created_at": false,
+			"show_log": false,
+			"fields": [
+				{
+					"id": 248,
+					"field_type": "text_field",
+					"doc_type_id": 65,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_248",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Comarca",
+						"field_required": "true",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 0,
+					"created_at": "2019-10-07T15:53:55.936Z",
+					"updated_at": "2019-11-01T23:04:18.049Z"
+				},
+				{
+					"id": 249,
+					"field_type": "text_field",
+					"doc_type_id": 65,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_249",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Vara",
+						"field_required": "true",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 1,
+					"created_at": "2019-10-07T15:53:55.942Z",
+					"updated_at": "2019-11-01T23:04:18.052Z"
+				},
+				{
+					"id": 250,
+					"field_type": "text_field",
+					"doc_type_id": 65,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_250",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Pacote",
+						"field_required": "true",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 2,
+					"created_at": "2019-10-07T15:53:55.950Z",
+					"updated_at": "2019-11-01T23:04:18.055Z"
+				},
+				{
+					"id": 251,
+					"field_type": "text_field",
+					"doc_type_id": 65,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_251",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Ano Pacote",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 3,
+					"created_at": "2019-10-07T15:53:55.959Z",
+					"updated_at": "2019-11-01T23:04:18.058Z"
+				},
+				{
+					"id": 252,
+					"field_type": "text_field",
+					"doc_type_id": 65,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_252",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Caixa",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 4,
+					"created_at": "2019-10-07T15:53:55.970Z",
+					"updated_at": "2019-11-01T23:04:18.061Z"
+				},
+				{
+					"id": 253,
+					"field_type": "text_field",
+					"doc_type_id": 65,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_253",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Item",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 5,
+					"created_at": "2019-10-07T15:53:55.984Z",
+					"updated_at": "2019-11-12T19:53:49.766Z"
+				}
+			]
+		},
+		{
+			"id": 67,
+			"name": "Folha de processo retido em cartorio",
+			"show_user": false,
+			"show_created_at": false,
+			"show_log": false,
+			"fields": [
+				{
+					"id": 257,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_257",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Comarca",
+						"field_required": "true",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 0,
+					"created_at": "2019-11-01T23:02:04.670Z",
+					"updated_at": "2019-11-01T23:02:04.675Z"
+				},
+				{
+					"id": 258,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_258",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Vara",
+						"field_required": "true",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 1,
+					"created_at": "2019-11-01T23:02:04.677Z",
+					"updated_at": "2019-11-01T23:02:04.682Z"
+				},
+				{
+					"id": 259,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_259",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Pacote",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 2,
+					"created_at": "2019-11-01T23:02:04.685Z",
+					"updated_at": "2019-11-01T23:02:04.691Z"
+				},
+				{
+					"id": 260,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_260",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Ano Pacote",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 3,
+					"created_at": "2019-11-01T23:02:04.694Z",
+					"updated_at": "2019-11-01T23:02:04.702Z"
+				},
+				{
+					"id": 261,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_261",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Caixa",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 4,
+					"created_at": "2019-11-01T23:02:04.705Z",
+					"updated_at": "2019-11-01T23:02:04.715Z"
+				},
+				{
+					"id": 262,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_262",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Item",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 5,
+					"created_at": "2019-11-01T23:02:04.719Z",
+					"updated_at": "2019-11-01T23:02:04.731Z"
+				},
+				{
+					"id": 263,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_263",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Nro Processo",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 6,
+					"created_at": "2019-11-01T23:02:04.735Z",
+					"updated_at": "2019-11-01T23:02:04.752Z"
+				},
+				{
+					"id": 264,
+					"field_type": "text_field",
+					"doc_type_id": 67,
+					"parent_id": null,
+					"field_properties": {
+						"field_form_name": "ffield_264",
+						"field_placeholder": "",
+						"field_mask": "",
+						"field_default_value": "",
+						"field_name": "Ano Processo",
+						"field_required": "",
+						"field_in_search": "true",
+						"field_in_list": "true",
+						"select_list_type": "0",
+						"object_dependent_id": "",
+						"static_list_values": ""
+					},
+					"field_order": 7,
+					"created_at": "2019-11-01T23:02:04.757Z",
+					"updated_at": "2019-11-01T23:02:04.776Z"
+				}
+			]
+		}
+	]
+}
+
+
+Content-Type application/json
+Authentication Token token=AuUEwKZhgyywc4yZ9dXxavDc
+
+curl --location --request POST 'https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/search/' \
+Authorization: Token token=AuUEwKZhgyywc4yZ9dXxavDc
+Content-Type: application/json
+
+{
+"page": 1,
+"doc_type_id": 67,
+"hash_value": {
+	"ffield_257": "64142",
+	"ffield_258": "10000760",
+	"ffield_259": "1524",
+	"ffield_260": "2004",
+	"ffield_261": "9009637942",
+	"ffield_262": "3",
+	"ffield_263": "123456",
+	"ffield_264": "2004"
+}
+}
+EFTJImagem
+
+
+394318
+https://devel.digitalshare.com.br/previews/i7CoQRuHHvFpe3bSHzsECUef
+
+
+https://cdn.pixabay.com/photo/2012/10/29/15/36/ball-63527_960_720.jpg
+https://cdn.pixabay.com/photo/2014/09/05/18/33/old-letters-436501_960_720.jpg
+https://image.shutterstock.com/image-photo/archive-folder-pile-files-600w-789157507.jpg
+https://cdn.pixabay.com/photo/2014/09/05/18/33/old-letters-436503_960_720.jpg
+https://cdn.pixabay.com/photo/2014/05/21/22/28/old-newspaper-350376_960_720.jpg
+
+394323
+
+"20200312095744"
+"20200312095744"
+
+
+POST https://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/update
+
+User-Agent: Fiddler
+Authorization: Token token=AuUEwKZhgyywc4yZ9dXxavDc
+Content-Type: application/json
+Host: devel.digitalshare.com.br
+Content-Length: 491
+
+{"doc_type_id":65,"id":394355,"parent_id":null,"hash_value":{"ffield_253":null,"ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200312134403","ffield_251":"2020","ffield_252":"9009637942"},"hash_value_upd":{"ffield_253":null,"ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200312134403","ffield_251":"2020","ffield_252":"9009637942"},"attached_docs":[{"id":null,"base64":null,"url_file":"https://cdn.pixabay.com/photo/2014/09/05/18/33/old-letters-436501_960_720.jpg"}]}
+{"doc_type_id":65,"id":394334,"parent_id":null,"hash_value":{"ffield_253":null,"ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200312104036","ffield_251":"2020","ffield_252":"9009637942"},"hash_value_upd":{"ffield_253":null,"ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200312104036","ffield_251":"2020","ffield_252":"9009637942"},"attached_docs":[{"id":0,"base64":null,"url_file":"https://cdn.pixabay.com/photo/2014/09/05/18/33/old-letters-436501_960_720.jpg"}]}
+{"doc_type_id":65,"id":394360                 ,"hash_value":{                  "ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200312140837","ffield_251":"2020","ffield_252":"9009637942"},"hash_value_upd":{                  "ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200312140837","ffield_251":"2020","ffield_252":"9009637942"},"attached_docs":[{                     "url_file":"https://cdn.pixabay.com/photo/2014/09/05/18/33/old-letters-436501_960_720.jpg"}]}

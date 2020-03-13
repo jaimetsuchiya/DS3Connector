@@ -1,0 +1,22 @@
+{
+  "doc_type_id": 65,
+  "hash_value": {
+    "ffield_248": "Comarca2019",
+    "ffield_249": "Vara2019",
+    "ffield_250": "NroPacote2019",
+    "ffield_251": "AnoPacote2019",
+    "ffield_252": "NroCaixa2019",
+    "ffield_253": "NroItem2019"
+  },
+  "attached_docs": [
+    {
+      "base64": "",
+      "url_file": "https://image.shutterstock.com/z/stock-photo-cars-for-sale-stock-lot-row-car-dealer-inventory-636632101.jpg"
+    },
+    {
+      "base64": "",
+      "url_file": "https://image.shutterstock.com/z/stock-photo-bangkok-thailand-november-a-car-on-street-in-bangkok-752306941.jpg"
+    }
+  ]
+}
+

@@ -1,0 +1,26 @@
+{
+  "doc_type_id": 65,
+  "hash_value": {
+    "ffield_248": "Comarca2019",
+    "ffield_249": "Vara2019",
+    "ffield_250": "NroPacote2019",
+    "ffield_251": "AnoPacote2019",
+    "ffield_252": "NroCaixa2019",
+    "ffield_253": "NroItem2019"
+  },
+  "hash_value_upd": {
+    "ffield_248": "Comarca2019 Upd",
+    "ffield_249": "Vara2019 Upd",
+    "ffield_250": "NroPacote2019 Upd",
+    "ffield_251": "AnoPacote2019 Upd",
+    "ffield_252": "NroCaixa2019 Upd",
+    "ffield_253": "NroItem2019 Upd"
+  },
+  "attached_docs": [
+    {
+      "base64": "",
+      "url_file": "https://thumbs.dreamstime.com/b/snowboarder-jumps-big-rock-against-group-cheerleaders-snowboarder-jumps-big-rock-against-162062597.jpg"
+    }
+  ]
+}
+

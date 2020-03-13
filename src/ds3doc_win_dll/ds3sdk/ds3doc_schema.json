@@ -1,0 +1,60 @@
+{
+    "status": "SUCCESS/ERROR",
+    "message": "Message de retorno",
+    "total_found": "Total de Registro Encontrados",
+    "total_per_page": "Toral de Registros enviados por páginas",
+    "page": "Página atual",
+    "data": [
+        {
+            "_comment": "Dados do documento",
+            "id": "Id do Documento",
+            "parent_id": "Se o documento esta sobre algum hierarquia" ,
+            "created_at": "Data de criação do documento",
+            "updated_at": "Data de atualização do documento",
+            "_comment1": "Dados referente a cada campo no tipo de documento",
+            "hash_value": {
+                "ffield_248": "120274",
+                "ffield_249": "10053854",
+                "ffield_250": "3209",
+                "ffield_251": "2005",
+                "ffield_252": "90010514232"
+            },
+            "_comment2": "Definição do Tipo de Documento.",
+            "doc_type": {
+                "id": 65,
+                "name": "Espelho de Caixa",
+                "ffield_248": "Comarca",
+                "ffield_249": "Vara",
+                "ffield_250": "Nro Pacote",
+                "ffield_251": "Ano Pacote",
+                "ffield_252": "Nro Caixa",
+                "ffield_253": "Nro Item"
+            },
+            "_comment3": "Arquivs anexados ao documento",
+            "attached_docs": [
+                {
+                    "id": "Id do arquivo",
+                    "doc_file_name": "Nome do arquivo",
+                    "doc_content_type": "Tipo do arquivo",
+                    "doc_file_size": "Tamanho em bytes do arquivo",
+                    "created_at": "Data de criação",
+                    "updated_at": "Data de atualização",
+                    "url_doc": "Url de acesso direto ao documento"
+                },
+            ],
+            "_comment4": "Dados de log do documento",
+            "logs": [
+                {
+                    "id": "Id do log",
+                    "document_id": "Id do documento",
+                    "username": "Nome do usuário que gerou o log",
+                    "action": "Ação do log",
+                    "created_at": "Data de criação",
+                    "updated_at": "Data de atualização",
+                    "user_id": "Id do usuário",
+                    "note": "Notas"
+                }
+            ]
+        }
+    ]
+}
