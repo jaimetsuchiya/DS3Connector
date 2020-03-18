@@ -27,11 +27,8 @@ namespace DS3Connector.DTO
     }
 
     [DataContract]
-    public class EditAttach<T>
+    public class AddAttach<T>
     {
-        [DataMember(Name = "id")]
-        public int Id { get; set; }
-
         [DataMember(Name = "doc_type_id")]
         public int DocTypeId { get { return (this.DocumentInfo is ProcessInfo ? 67 : 65); } }
 
@@ -46,6 +43,14 @@ namespace DS3Connector.DTO
 
         [DataMember(Name = "base_64")]
         public string Base64 { get; set; }
+    }
+
+    [DataContract]
+    public class EditAttach<T>: AddAttach<T>
+    {
+        [DataMember(Name = "id")]
+        public int Id { get; set; }
+
     }
 
 

@@ -31,14 +31,14 @@ namespace DS3Connector.Proxy
                 ));
         }
 
-        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.EditAttach<DTO.BoxInfo> attach)
+        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.AddAttach<DTO.BoxInfo> attach)
         {
             return base.FormatResult<DTO.DocumentAttachment>(
                 proxy.Create(
                     base.Serialize(attach)
                 ));
         }
-        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.EditAttach<DTO.ProcessInfo> attach)
+        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.AddAttach<DTO.ProcessInfo> attach)
         {
             return base.FormatResult<DTO.DocumentAttachment>(
                 proxy.Create(
