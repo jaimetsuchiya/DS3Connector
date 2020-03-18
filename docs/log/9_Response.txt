@@ -1,0 +1,15 @@
+HTTP/1.1 422 Unprocessable Entity
+Server: nginx/1.17.8
+Date: Wed, 18 Mar 2020 12:09:09 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Cache-Control: no-cache
+Set-Cookie: _ds3doc_session=e8f1d17977d270f1f920ecf1a084567d; path=/; HttpOnly
+X-Request-Id: 7d9daf91f771d73c865d5ce7fd8a8dbf
+X-Runtime: 0.151108
+Content-Length: 107
+
+{"status":"ERROR","message":"Attached doc create error. undefined method `doc' for nil:NilClass","data":{}}
