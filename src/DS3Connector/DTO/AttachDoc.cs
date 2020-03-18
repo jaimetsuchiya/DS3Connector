@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace DS3Connector.DTO
 {
     [DataContract]
-    public class AttachDocSearchRequest
+    public class AttachDocSearchRequest<T>
     {
         [DataMember(Name = "doc_type_id")]
-        public int DocTypeId { get; set; }
+        public int DocTypeId { get { return (this.DocumentInfo is ProcessInfo ? 67 : 65); } }
 
         [DataMember(Name = "id")]
         public int? Id { get; set; }
@@ -23,23 +23,23 @@ namespace DS3Connector.DTO
         public int? Page { get; set; }
 
         [DataMember(Name = "hash_value")]
-        public DocumentInfo DocumentInfo { get; set; }
+        public T DocumentInfo { get; set; }
     }
 
     [DataContract]
-    public class EditAttach
+    public class EditAttach<T>
     {
         [DataMember(Name = "id")]
         public int Id { get; set; }
 
         [DataMember(Name = "doc_type_id")]
-        public int DocTypeId { get; set; }
+        public int DocTypeId { get { return (this.DocumentInfo is ProcessInfo ? 67 : 65); } }
 
         [DataMember(Name = "document_id")]
         public int? DocumentId { get; set; }
 
         [DataMember(Name = "hash_value")]
-        public DocumentInfo DocumentInfo { get; set; }
+        public T DocumentInfo { get; set; }
 
         [DataMember(Name = "url_file")]
         public string URL_FILE { get; set; }

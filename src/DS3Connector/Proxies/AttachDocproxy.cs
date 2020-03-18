@@ -15,7 +15,7 @@ namespace DS3Connector.Proxy
             proxy = new ds3sdk.DS3Attacheddoc();
         }
 
-        public DTO.OutputTransport<List<DTO.DocumentAttachment>> Search(DTO.AttachDocSearchRequest criteria)
+        public DTO.OutputTransport<List<DTO.DocumentAttachment>> Search(DTO.AttachDocSearchRequest<DTO.BoxInfo> criteria)
         {
             return base.FormatResult<List<DTO.DocumentAttachment>>(
                 proxy.Search(
@@ -23,7 +23,22 @@ namespace DS3Connector.Proxy
                 ));
         }
 
-        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.EditAttach attach)
+        public DTO.OutputTransport<List<DTO.DocumentAttachment>> Search(DTO.AttachDocSearchRequest<DTO.ProcessInfo> criteria)
+        {
+            return base.FormatResult<List<DTO.DocumentAttachment>>(
+                proxy.Search(
+                    base.Serialize(criteria)
+                ));
+        }
+
+        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.EditAttach<DTO.BoxInfo> attach)
+        {
+            return base.FormatResult<DTO.DocumentAttachment>(
+                proxy.Create(
+                    base.Serialize(attach)
+                ));
+        }
+        public DTO.OutputTransport<DTO.DocumentAttachment> Create(DTO.EditAttach<DTO.ProcessInfo> attach)
         {
             return base.FormatResult<DTO.DocumentAttachment>(
                 proxy.Create(
@@ -31,7 +46,7 @@ namespace DS3Connector.Proxy
                 ));
         }
 
-        public DTO.OutputTransport<DTO.DocumentAttachment> Update(DTO.EditAttach attach)
+        public DTO.OutputTransport<DTO.DocumentAttachment> Update(DTO.EditAttach<DTO.BoxInfo> attach)
         {
             return base.FormatResult<DTO.DocumentAttachment>(
                 proxy.Update(
@@ -39,7 +54,25 @@ namespace DS3Connector.Proxy
                 ));
         }
 
-        public DTO.OutputTransport<string> Delete(DTO.EditAttach attach)
+
+        public DTO.OutputTransport<DTO.DocumentAttachment> Update(DTO.EditAttach<DTO.ProcessInfo> attach)
+        {
+            return base.FormatResult<DTO.DocumentAttachment>(
+                proxy.Update(
+                    base.Serialize(attach)
+                ));
+        }
+
+        public DTO.OutputTransport<string> Delete(DTO.EditAttach<DTO.BoxInfo> attach)
+        {
+            return base.FormatResult<string>(
+                proxy.Delete(
+                    base.Serialize(attach)
+                ));
+        }
+
+
+        public DTO.OutputTransport<string> Delete(DTO.EditAttach<DTO.ProcessInfo> attach)
         {
             return base.FormatResult<string>(
                 proxy.Delete(

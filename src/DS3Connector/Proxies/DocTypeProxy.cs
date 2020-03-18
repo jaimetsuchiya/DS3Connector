@@ -16,14 +16,14 @@ namespace DS3Connector.Proxy
             ds3 = new ds3sdk.DS3Doctype();
         }
 
-        public DTO.OutputTransport<List<DTO.DocType>> Search(int? id = null)
+        public DTO.OutputTransport<List<DTO.DocTypeResponse>> Search(int? id = null)
         {
             var proxy = new ds3sdk.DS3Doctype();
             var criteria = "";
             if( id.HasValue)
                 criteria = "{ \"id\": " + id.Value.ToString() + " }";
 
-            return base.FormatResult<List<DTO.DocType>>(
+            return base.FormatResult<List<DTO.DocTypeResponse>>(
                 proxy.Search(criteria));
         }
 

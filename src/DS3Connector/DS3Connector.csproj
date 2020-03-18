@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\DsActions.cs" />
+    <Compile Include="Adapter\DsModels.cs" />
     <Compile Include="DTO\AttachDoc.cs" />
     <Compile Include="DTO\Document.cs" />
     <Compile Include="Proxies\AttachDocProxy.cs" />

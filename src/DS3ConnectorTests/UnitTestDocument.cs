@@ -14,7 +14,7 @@ namespace DS3ConnectorTests
     public class UnitTestDocument
     {
         private readonly DS3Connector.Proxy.Document proxy = null;
-        private DS3Connector.DTO.DocumentInfo documentInfo = null;
+        private DS3Connector.DTO.BoxInfo documentInfo = null;
         private int? documentId = null;
 
         #region Setup
@@ -39,10 +39,9 @@ namespace DS3ConnectorTests
             if (newDocument != null)
             {
                 //Delete Document
-                var deleteResult = proxy.Delete(new DS3Connector.DTO.UpdateDocument()
+                var deleteResult = proxy.Delete(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
                 {
                     Id = newDocument.Id,
-                    DocTypeId = newDocument.DocType.Id,
                     DocumentInfo = newDocument.DocumentInfo
                 });
 
@@ -60,10 +59,9 @@ namespace DS3ConnectorTests
         [TestMethod]
         public void ConsultaDocumento()
         {
-            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest()
+            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest<DS3Connector.DTO.IBoxSearchRequest>()
             {
-                DocTypeId = 65,
-                DocumentInfo = new DS3Connector.DTO.DocumentSearchRequest()
+                DocumentInfo = new DS3Connector.DTO.BoxSearchRequestInfo()
                 {
                     ComarcaID = "64088",
                     VaraID = "10003220",
@@ -82,12 +80,11 @@ namespace DS3ConnectorTests
         [TestMethod]
         public void ConsultaDocumentos()
         {
-            List<DS3Connector.DTO.Document> documentos = new List<DS3Connector.DTO.Document>();
+            List<DS3Connector.DTO.Document<DS3Connector.DTO.BoxInfo, DS3Connector.DTO.BoxDocType>> documentos = new List<DS3Connector.DTO.Document<DS3Connector.DTO.BoxInfo, DS3Connector.DTO.BoxDocType>>();
 
-            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest()
+            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest<DS3Connector.DTO.IBoxSearchRequest>()
             {
-                DocTypeId = 65,
-                DocumentInfo = new DS3Connector.DTO.DocumentSearchRequest()
+                DocumentInfo = new DS3Connector.DTO.BoxSearchRequestInfo()
                 {
                     ComarcaID = "63982"
                 }
@@ -107,11 +104,10 @@ namespace DS3ConnectorTests
 
             for ( var i=page; i <= pageCount; i++)
             {
-                documentList = proxy.Search(new DS3Connector.DTO.SearchRequest()
+                documentList = proxy.Search(new DS3Connector.DTO.SearchRequest<DS3Connector.DTO.IBoxSearchRequest>()
                 {
-                    DocTypeId = 65,
                     Page = i,
-                    DocumentInfo = new DS3Connector.DTO.DocumentSearchRequest()
+                    DocumentInfo = new DS3Connector.DTO.BoxSearchRequestInfo()
                     {
                         ComarcaID = "63982"
                     }
@@ -126,12 +122,11 @@ namespace DS3ConnectorTests
         [TestMethod]
         public void ConsultaDocumentoSemResultado()
         {
-            List<DS3Connector.DTO.Document> documentos = new List<DS3Connector.DTO.Document>();
+            List<DS3Connector.DTO.Document<DS3Connector.DTO.BoxInfo, DS3Connector.DTO.BoxDocType>> documentos = new List<DS3Connector.DTO.Document<DS3Connector.DTO.BoxInfo, DS3Connector.DTO.BoxDocType>>();
 
-            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest()
+            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest<DS3Connector.DTO.IBoxSearchRequest>()
             {
-                DocTypeId = 65,
-                DocumentInfo = new DS3Connector.DTO.DocumentSearchRequest()
+                DocumentInfo = new DS3Connector.DTO.BoxSearchRequestInfo()
                 {
                     ComarcaID = "99999"
                 }
@@ -152,8 +147,7 @@ namespace DS3ConnectorTests
         public void CriarDocumento01()
         {
             var novoDocumento = proxy.Create(
-                new DS3Connector.DTO.CreateDocument() {
-                    DocTypeId = 65,
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>() {
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>()
                     {
                         new DS3Connector.DTO.CreateDocumentAttachment()
@@ -166,6 +160,7 @@ namespace DS3ConnectorTests
             );
 
             Assert.IsTrue(novoDocumento.Status == Constants.SUCCESS);
+            
             Assert.IsTrue(novoDocumento.Data.Id > 0);
             Assert.IsTrue(novoDocumento.Data.DocumentInfo.ComarcaID == documentInfo.ComarcaID);
             Assert.IsTrue(novoDocumento.Data.DocumentInfo.VaraID == documentInfo.VaraID);
@@ -186,9 +181,8 @@ namespace DS3ConnectorTests
         public void CriarDocumento02()
         {
             var novoDocumento1 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>()
                     {
                         new DS3Connector.DTO.CreateDocumentAttachment()
@@ -211,9 +205,8 @@ namespace DS3ConnectorTests
             documentId = novoDocumento1.Data.Id;
 
             var novoDocumento2 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>()
                     {
                         new DS3Connector.DTO.CreateDocumentAttachment()
@@ -264,9 +257,8 @@ namespace DS3ConnectorTests
         public void CriarDocumento03()
         {
             var novoDocumento1 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>(),
                     DocumentInfo = documentInfo,
                 }
@@ -295,9 +287,8 @@ namespace DS3ConnectorTests
         {
             //Cria Documento 
             var novoDocumento = proxy.Create(
-                    new DS3Connector.DTO.CreateDocument()
+                    new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                     {
-                        DocTypeId = 65,
                         Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>()
                         {
                             new DS3Connector.DTO.CreateDocumentAttachment()
@@ -325,9 +316,8 @@ namespace DS3ConnectorTests
 
             //Insere novo Attach
             //Atualiza o Documento
-            var resultadoUpdate = proxy.Update(new DS3Connector.DTO.UpdateDocument()
+            var resultadoUpdate = proxy.Update(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
             {
-                DocTypeId = 65,
                 Id = novoDocumento.Data.Id,
                 DocumentInfo = documentInfo,
                 NewDocumentInfo = novoDocumentInfo,
@@ -365,9 +355,8 @@ namespace DS3ConnectorTests
         {
             //Cria Documento
             var novoDocumento1 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>(),
                     DocumentInfo = documentInfo,
                 }
@@ -379,10 +368,9 @@ namespace DS3ConnectorTests
 
 
             //Apaga Documento
-            var resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument()
+            var resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
             {
                 Id = novoDocumento1.Data.Id,
-                DocTypeId = novoDocumento1.Data.DocType.Id,
                 DocumentInfo = novoDocumento1.Data.DocumentInfo
             });
 
@@ -401,10 +389,9 @@ namespace DS3ConnectorTests
         public void DeleteDocument02()
         {
             //Solicita Deleção de documento inexistente
-            var resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument()
+            var resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
             {
                 Id = 999999,
-                DocTypeId = 65,
                 DocumentInfo = documentInfo
             });
 
@@ -418,9 +405,8 @@ namespace DS3ConnectorTests
             documentInfo.NroCaixa = "90009999999999";
 
             var novoDocumento1 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>(),
                     DocumentInfo = documentInfo,
                 }
@@ -429,9 +415,8 @@ namespace DS3ConnectorTests
 
 
             var novoDocumento2 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>(),
                     DocumentInfo = documentInfo,
                 }
@@ -440,9 +425,8 @@ namespace DS3ConnectorTests
 
 
             var novoDocumento3 = proxy.Create(
-                new DS3Connector.DTO.CreateDocument()
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
                 {
-                    DocTypeId = 65,
                     Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>(),
                     DocumentInfo = documentInfo,
                 }
@@ -455,23 +439,20 @@ namespace DS3ConnectorTests
 
 
             //Solicita Deleção de documento sem informar o id com critério que retorna mais de um documento
-            var resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument()
+            var resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
             {
-                DocTypeId = 65,
                 DocumentInfo = documentInfo
             });
             Assert.IsTrue(resultDelete.Status == Constants.SUCCESS);
 
-            resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument()
+            resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
             {
-                DocTypeId = 65,
                 DocumentInfo = documentInfo
             });
             Assert.IsTrue(resultDelete.Status == Constants.SUCCESS);
 
-            resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument()
+            resultDelete = proxy.Delete(new DS3Connector.DTO.UpdateDocument<DS3Connector.DTO.BoxInfo>()
             {
-                DocTypeId = 65,
                 DocumentInfo = documentInfo
             });
             Assert.IsTrue(resultDelete.Status == Constants.SUCCESS);
@@ -487,9 +468,9 @@ namespace DS3ConnectorTests
 
         #region Auxiliar Methods
 
-        private DS3Connector.DTO.DocumentInfo DocumentoInfoTeste()
+        private DS3Connector.DTO.BoxInfo DocumentoInfoTeste()
         {
-            return new DS3Connector.DTO.DocumentInfo()
+            return new DS3Connector.DTO.BoxInfo()
             {
                 ComarcaID = "64021",
                 VaraID = "10000426",
@@ -499,11 +480,10 @@ namespace DS3ConnectorTests
             };
         }
 
-        private DS3Connector.DTO.Document RecuperaDocumentoTeste(int? documentId = null)
+        private DS3Connector.DTO.Document<DS3Connector.DTO.BoxInfo, DS3Connector.DTO.BoxDocType> RecuperaDocumentoTeste(int? documentId = null)
         {
-            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest()
+            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest<DS3Connector.DTO.IBoxSearchRequest>()
             {
-                DocTypeId = 65,
                 Id = documentId,
                 DocumentInfo = documentInfo
             });
@@ -515,11 +495,10 @@ namespace DS3ConnectorTests
         }
 
 
-        private List<DS3Connector.DTO.Document> RecuperaDocumentosTeste()
+        private List<DS3Connector.DTO.Document<DS3Connector.DTO.BoxInfo, DS3Connector.DTO.BoxDocType>> RecuperaDocumentosTeste()
         {
-            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest()
+            var documentList = proxy.Search(new DS3Connector.DTO.SearchRequest<DS3Connector.DTO.IBoxSearchRequest>()
             {
-                DocTypeId = 65,
                 DocumentInfo = documentInfo
             });
 

@@ -57,6 +57,7 @@
     <Compile Include="UnitTestDocType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestDocument.cs" />
+    <Compile Include="UnitTestDSAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
