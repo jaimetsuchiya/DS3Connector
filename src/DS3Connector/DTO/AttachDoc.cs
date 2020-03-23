@@ -41,7 +41,7 @@ namespace DS3Connector.DTO
         [DataMember(Name = "url_file")]
         public string URL_FILE { get; set; }
 
-        [DataMember(Name = "base_64")]
+        [DataMember(Name = "base64")]
         public string Base64 { get; set; }
     }
 

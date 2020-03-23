@@ -95,12 +95,52 @@ namespace DS3ConnectorTests
         public void Initialize()
         {
             //Cria Imagem de Teste
+            boxInfo = BoxInfoTeste();
+            var novoDocumento1 = documentProxy.Create(
+                new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.BoxInfo>()
+                {
+                    Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>()
+                    {
+                        new DS3Connector.DTO.CreateDocumentAttachment()
+                        {
+                            FileURL = "https://cdn.pixabay.com/photo/2012/10/29/15/36/ball-63527_960_720.jpg"
+                        }
+                    },
+                    DocumentInfo = boxInfo,
+                }
+            );
+
+            if (novoDocumento1.Status == Constants.SUCCESS)
+                boxInfoDocument = novoDocumento1.Data;
+
+
+            //Cria Imagem de Teste
+            processInfo = ProcessInfoTeste();
+
+            var novoDocumento2 = documentProxy.Create(
+                  new DS3Connector.DTO.CreateDocument<DS3Connector.DTO.ProcessInfo>()
+                  {
+                      Attachments = new List<DS3Connector.DTO.CreateDocumentAttachment>()
+                      {
+                            new DS3Connector.DTO.CreateDocumentAttachment()
+                            {
+                                FileURL = "https://cdn.pixabay.com/photo/2012/10/29/15/36/ball-63527_960_720.jpg"
+                            }
+                      },
+                      DocumentInfo = processInfo,
+                  }
+            );
+
+            if (novoDocumento2.Status == Constants.SUCCESS)
+                processInfoDocument = novoDocumento2.Data;
+
         }
 
 
         [TestCleanup]
         public void CleanUp()
         {
+            //Apaga imagem de teste
         }
 
 
@@ -115,14 +155,45 @@ namespace DS3ConnectorTests
         [TestMethod]
         public void Teste01_GetImagem()
         {
-            
+            //Recupera a imagem criada no initialize, ok se a imagem 
+            var dsKeyword = new List<DsKeyword>()
+            {
+                new DsKeyword(19, "Codigo da Comarca", boxInfo.ComarcaID.ToString()),
+                new DsKeyword(20, "Codigo da Vara", boxInfo.VaraID.ToString()),
+                new DsKeyword(21, "Numero do Pacote", boxInfo.NroPacote.ToString()),
+                new DsKeyword(22, "Ano do Pacote", boxInfo.AnoPacote.ToString()),
+                new DsKeyword(23, "Numero da Caixa", boxInfo.NroCaixa.ToString())
+            };
 
+
+            var result = actions.PesquisarArquivosObjeto("Espelho da caixa", dsKeyword);
+            Assert.IsTrue(result != null);
+            Assert.IsTrue(result.CodErro == 0);
+            Assert.IsTrue(result.Docs != null);
+            Assert.IsTrue(result.Docs.Count > 0);
         }
 
         [TestMethod]
         public void Teste02_GetImagem()
         {
             //Tipo de Imagem 2, Imagem existe
+            var dsKeyword = new List<DsKeyword>()
+            {
+                new DsKeyword(19, "Codigo da Comarca", processInfo.ComarcaID.ToString()),
+                new DsKeyword(20, "Codigo da Vara", processInfo.VaraID.ToString()),
+                new DsKeyword(21, "Numero do Pacote", processInfo.NroPacote.ToString()),
+                new DsKeyword(22, "Ano do Pacote", processInfo.AnoPacote.ToString()),
+                new DsKeyword(23, "Numero da Caixa", processInfo.NroCaixa.ToString()),
+                new DsKeyword(25, "Ano do Processo", processInfo.AnoProcesso.ToString()),
+                new DsKeyword(26, "Numero do Processo", processInfo.NroProcesso.ToString())
+            };
+
+
+            var result = actions.PesquisarArquivosObjeto("folha de processo", dsKeyword);
+            Assert.IsTrue(result != null);
+            Assert.IsTrue(result.CodErro == 0);
+            Assert.IsTrue(result.Docs != null);
+            Assert.IsTrue(result.Docs.Count > 0);
         }
 
         [TestMethod]

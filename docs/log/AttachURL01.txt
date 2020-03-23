@@ -123,34 +123,4 @@ Content-Length: 2237
 
 ------------------------------------------------------------------
 
-POST http://devel.digitalshare.com.br/pt-BR/api/v1/doc_types/documents/search HTTP/1.1
-Authorization: Token token=AuUEwKZhgyywc4yZ9dXxavDc
-Content-Type: application/json
-cache-control: no-cache
-Accept: application/json, application/xml, text/json, text/x-json, text/javascript, text/xml
-User-Agent: RestSharp/106.4.2.0
-Host: devel.digitalshare.com.br
-Content-Length: 175
-Accept-Encoding: gzip, deflate
-
-{"doc_type_id":65,"page":1,"id":394458,"hash_value":{"ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200318134943","ffield_251":"2020","ffield_252":"9009999999"}}
-HTTP/1.1 200 OK
-Server: nginx/1.17.8
-Date: Wed, 18 Mar 2020 16:49:56 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Vary: Accept-Encoding
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 1; mode=block
-X-Content-Type-Options: nosniff
-ETag: W/"6a9428fe6e009f1605c70d3dfd401ea8"
-Cache-Control: max-age=0, private, must-revalidate
-Set-Cookie: _ds3doc_session=2491e34d582df4d0504f5cec808569fe; path=/; HttpOnly
-X-Request-Id: c96cefb4fc7d578f6c2b9cbd3b15859a
-X-Runtime: 0.157500
-Content-Length: 2237
-
-{"status":"SUCCESS","message":"Documents was successfully found.","total_found":1,"total_per_page":50,"page":1,"data":[{"id":394458,"parent_id":null,"created_at":"2020-03-18T16:49:47.541Z","updated_at":"2020-03-18T16:49:47.541Z","hash_value":{"ffield_248":"64021","ffield_249":"10000426","ffield_250":"20200318134943","ffield_251":"2020","ffield_252":"9009999999","ffield_253":null},"doc_type":{"id":65,"name":"Espelho de Caixa","ffield_248":"Comarca","ffield_249":"Vara","ffield_250":"Nro Pacote","ffield_251":"Ano Pacote","ffield_252":"Nro Caixa","ffield_253":"Nro Item"},"attached_docs":[{"id":86162,"doc_file_name":"open-uri20200318-13717-2r0wbu","doc_content_type":"image/jpeg","doc_file_size":119747,"created_at":"2020-03-18T16:49:48.209Z","updated_at":"2020-03-18T16:49:48.209Z","document_id":394458,"url_doc":"https://devel.digitalshare.com.br/previews/VvozviCRQtop6JjtiXeDfgbP","url_doc_expire":"https://ds3doc-devel-images.s3.amazonaws.com/attached_docs/docs/000/086/162/original/open-uri20200318-13717-2r0wbu?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAI5CHPVGMNSHWJLUQ%2F20200318%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200318T164956Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=7be66e236dc5c304cbd7332a98d17ff87224141fe84839c15b94e977a282ca10"},{"id":86163,"doc_file_name":"open-uri20200318-13717-smkdvi","doc_content_type":"image/jpeg","doc_file_size":91974,"created_at":"2020-03-18T16:49:52.537Z","updated_at":"2020-03-18T16:49:52.537Z","document_id":394458,"url_doc":"https://devel.digitalshare.com.br/previews/UKYTTur4VTSXHF8qKGCnB4UK","url_doc_expire":"https://ds3doc-devel-images.s3.amazonaws.com/attached_docs/docs/000/086/163/original/open-uri20200318-13717-smkdvi?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAI5CHPVGMNSHWJLUQ%2F20200318%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20200318T164956Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=661a4bf408d01cf39ac24b7509eb43ae308b274367b1e710e86cc69c4c4c1979"}],"logs":[{"id":134460,"document_id":394458,"username":"IRON Test","action":"create","created_at":"2020-03-18T16:49:47.561Z","updated_at":"2020-03-18T16:49:47.561Z","user_id":36,"note":"Saved by Api"}]}]}
-
-------------------------------------------------------------------
 
